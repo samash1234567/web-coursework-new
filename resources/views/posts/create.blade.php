@@ -1,14 +1,14 @@
-@extends('layouts.master')
+@extends('layouts.create')
 
-@section('title', 'Create a Post')
+@section('title-page', 'Create a Post')
 
 @section('content')
 
-<form method="POST" action="{{ route('posts.store')}}">
+<form class="display-form" method="POST" action="{{ route('posts.store')}}">
 
 @csrf
 
-<p>Post Title: <input type="text" name="post_title" value="{{ old('post_title')}}"></p>
+<p class="display-text">Post Title: <input class="display-input" type="text" name="post_title" value="{{ old('post_title')}}"></p>
 <p>Post Content: <input type="text" name="post_content" value="{{ old('post_content')}}"></p>
 
 <p>Thread Post is created to:
