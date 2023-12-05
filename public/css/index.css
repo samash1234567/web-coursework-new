@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+* {
+    font-family: 'Nova Square', sans-serif;
+    background-color: black;
+}
+
+
+
+#navbar-container {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+    background-color: rgb(12, 11, 11);
+}
+
+
+.navbar-items {
+    display: inline;
+    float: left;
+    border-right: 2px solid #fafafa;
+    border-left: 2px solid #fcfafa;
+}
+
+.navbar-anchor {
+    background-color: rgb(3, 3, 3);
+    color: rgb(229, 226, 226);
+    display: block;
+    text-align: center;
+    padding: 10px 14px;
+    font-size: 45px;
+    text-decoration: none;
+
+}
+
+.error-container {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+    background-color: rgb(36, 33, 33);
+}
+
+
+.error-item {
+    background-color: rgb(3, 3, 3);
+    color: rgb(229, 226, 226);
+    display: inline-block;
+    text-align: center;
+    padding: 10px 14px;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+ul {
+text-decoration: none;
+list-style-type: none;
+margin: 0;
+padding: 20px;
+overflow: hidden;
+background-color: rgb(14, 13, 13);
+border-style: solid;
+border-color: rgb(1, 2, 1);
+border-radius: 10px;
+}
+
+li {
+
+    display: block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+li a {
+    color: rgb(251, 218, 156);
+    display: block;
+    text-align: center;
+    padding: 10px 14px;
+    font-size: 30px;
+    text-transform: capitalize;
+    background-color: rgb(156, 115, 32);
+    border-style: solid;
+    border-color: rgb(1, 2, 1);
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bolder;
+  }
+
+  li a:hover {
+    background-color: #3d2004;
+    color: rgb(255, 255, 255);
+  }
+
+.display-posts {
+
+    text-transform: uppercase;
+    color: rgb(255, 187, 60);
+    background-color: rgb(11, 11, 11);
+    display: block;
+    text-align: center;
+    font-size: 55px;
+    margin: 0;
+    border-style: solid;
+    font-weight: bolder;
+    padding: 10px 10px 5px 5px;
+    border-color: rgb(1, 2, 1);
+    border-radius: 10px;
+}
+
+
+.display-create {
+    display: inline-block;
+    background-color: white;
+    color: rgb(174, 183, 6);
+    margin: 10px;
+    padding: 20px 20px 20px 20px;
+    margin-left: 700px;
+    text-decoration: none;
+    font-size: 50px;
+    font-weight: bolder;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.display-create:hover {
+    background-color: #3d2004;
+    color: rgb(255, 255, 255);
+}
+
+
+.display-session {
+    color: whitesmoke;
+    display: block;
+    text-align: center;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+.multi-items {
+
+    margin: 20px 20px 20px 20px;
+    border-bottom: 8px solid blue;
+}
