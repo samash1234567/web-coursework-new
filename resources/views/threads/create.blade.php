@@ -1,20 +1,24 @@
-@extends('layouts.master')
+@extends('layouts.create')
 
-@section('title', 'Create a Thread')
+@section('title-page', 'Create a Thread')
+
+@section('create','Thread')
 
 @section('content')
 
-<form method="POST" action="{{ route('threads.store')}}">
+<form class="display-form" method="POST" action="{{ route('threads.store')}}">
 
 @csrf
 
-<p>Thread Title: <input type="text" name="title" value="{{ old('title')}}"></p>
-<p>Thread Content: <input type="text" name="content" value="{{ old('content')}}"></p>
+<p class="display-text">Thread Title: <input class="display-input" type="text" name="title" value="{{ old('title')}}"></p>
+<p class="display-text">Thread Content: <input class="display-input" type="text" name="content" value="{{ old('content')}}"></p>
 
-<input type="submit" value="Submit">
+<div class="submit-cancel">
 
-<a href="{{ route('threads.index')}}">Cancel Thread Creation</a>
+<input class="display-submit" type="submit" value="Submit">
+<a class="display-cancel" href="{{ route('threads.index')}}">Cancel Thread Creation</a>
 
+</div>
 
 
 </form>

@@ -1,19 +1,24 @@
-@extends('layouts.master')
+@extends('layouts.create')
 
-@section('title', 'Create a Category')
+@section('title-page', 'Create a Category')
+
+@section('create', 'Category')
 
 @section('content')
 
-<form method="POST" action="{{ route('categories.store')}}">
+<form class="display-form" method="POST" action="{{ route('categories.store')}}">
 
 @csrf
 
-<p>Category Name: <input type="text" name="name" value="{{ old('name')}}"></p>
-<p>Category Description: <input type="text" name="catdescription" value="{{ old('catdescription')}}"></p>
+<p class="display-text">Category Name: <input class="display-input" type="text" name="name" value="{{ old('name')}}"></p>
+<p class="display-text">Category Description: <input class="display-input" type="text" name="catdescription" value="{{ old('catdescription')}}"></p>
 
-<input type="submit" value="Submit">
+<div class="submit-cancel">
 
-<a href="{{ route('categories.index')}}">Cancel Category Creation</a>
+<input class="display-submit" type="submit" value="Submit">
+<a class="display-cancel" href="{{ route('categories.index')}}">Cancel Category Creation</a>
+
+</div>
 
 
 

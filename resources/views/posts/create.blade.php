@@ -2,6 +2,8 @@
 
 @section('title-page', 'Create a Post')
 
+@section('create', 'Post')
+
 @section('content')
 
 <form class="display-form" method="POST" action="{{ route('posts.store')}}">
@@ -9,10 +11,11 @@
 @csrf
 
 <p class="display-text">Post Title: <input class="display-input" type="text" name="post_title" value="{{ old('post_title')}}"></p>
-<p>Post Content: <input type="text" name="post_content" value="{{ old('post_content')}}"></p>
 
-<p>Thread Post is created to:
-<select name="thread_id">
+<p class="display-text">Post Content: <input class="display-input" type="text" name="post_content" value="{{ old('post_content')}}"></p>
+
+<p class="display-text">Thread Post is created to:
+<select class="display-input" name="thread_id">
 
 @foreach ($threads as $thread)
 
@@ -28,8 +31,8 @@
 </select>
 </p>
 
-<p>User creating post:
-    <select name="user_id">
+<p class="display-text">User creating post:
+    <select class="display-input" name="user_id">
 
     @foreach ($users as $user)
 
@@ -45,10 +48,12 @@
     </select>
     </p>
 
-<input type="submit" value="Submit">
+<div class="submit-cancel">
 
-<a href="{{ route('posts.index')}}">Cancel Post</a>
+<input class="display-submit" type="submit" value="Submit">
+<a class="display-cancel" href="{{ route('posts.index')}}">Cancel Post</a>
 
+</div>
 </form>
 
 @endsection
