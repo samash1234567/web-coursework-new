@@ -11,9 +11,9 @@
 
 <ul id="navbar-container">
 
-<li class="navbar-items"><a class="navbar-anchor" href="#">HOME</a></li>
+<li class="navbar-items"><a class="navbar-anchor" href="/">HOME</a></li>
 <li class="navbar-items"><a class="navbar-anchor" href="#">LOGIN</a></li>
-<li class="navbar-items"><a  class="navbar-anchor" href="#">REGISTER</a></li>
+<li class="navbar-items"><a  class="navbar-anchor" href="/register">REGISTER</a></li>
 
 </ul>
 

@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/users',[UserController::class, 'index'])->name('users.index');
 
@@ -66,6 +68,14 @@ Route::get('/categories/{id}',[CategoryController::class, 'show'])->name('catego
 
 Route::delete('/categories/{id}',[CategoryController::class, 'destroy'])->name('categories.destroy');
 
+
+Route::get('/register',[RegisterController::class, 'create'])->name('register.create')->middleware('guest');
+Route::post('/register',[RegisterController::class, 'store'])->name('register.store')->middleware('guest');
+
+Route::get('/login',[SessionController::class, 'create'])->name('login.create')->middleware('guest');
+Route::post('/login',[SessionController::class, 'store'])->name('login.session')->middleware('guest');
+
+Route::post('/logout',[SessionController::class, 'destroy'])->name('logout.destroy')->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

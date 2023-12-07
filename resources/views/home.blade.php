@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyForum</title>
-    <link rel="stylesheet" href="css/master.css">
-    <!--add css link here -->
-</head>
-<body>
+@extends('layouts.home')
 
-
-<ul>
-
-    <li><a href="#">HOME</a></li>
-    <li><a href="#">LOGIN</a></li>
-    <li><a href="#">REGISTER</a></li>
-
-
-
-</ul>
-
-navigation
-
-
-</body>
-</html>
-
-
+@section('title-page', 'Home')
 
 
 
