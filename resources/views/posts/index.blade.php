@@ -1,6 +1,6 @@
 @extends('layouts.index')
 
-@section('title', 'Current Post')
+@section('title-page', 'Current Post')
 
 
 @section('content')

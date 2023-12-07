@@ -1,21 +1,32 @@
-@extends('layouts.master')
+@extends('layouts.show')
 
-@section('title', 'Category')
+@section('title-page', 'Current Category')
+
+@section('show-title', 'Category')
+
+@section('show', 'Categories')
 
 @section('content')
 
-    <ul>
-        <li>Category Name: {{$category->name}}</li>
-        <li>Category Description: {{$category->catdescription}}</li>
+    <div class="display-info">
+    <ul class="display-text">
+        <li class="display-input">Category Name: {{$category->name}}</li>
+        <li class="display-input">Category Description: {{$category->catdescription}}</li>
     </ul>
 
+    <div class="submit-cancel">
     <form method="POST" action="{{ route('categories.destroy', ['id' => $category->id]) }}">
 
         @csrf
 
         @method('DELETE')
 
-        <button type="submit">Delete Category</button>
+        <button class="display-submit" type="submit">Delete Category</button>
 
     </form>
+    <a class="display-cancel" href="{{ route('categories.index')}}">Go Back</a>
+
+    </div>
+
+    </div>
 @endsection
