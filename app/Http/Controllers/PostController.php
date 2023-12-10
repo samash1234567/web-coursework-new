@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Thread;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -25,7 +26,8 @@ class PostController extends Controller
     {
         $users = User::orderBy('name','asc')->get();
         $threads = Thread::orderBy('title','asc')->get();
-        return view('posts.create', ['users' => $users], ['threads' => $threads]);
+        $comments = Comment::all();
+        return view('posts.create', ['users' => $users], ['threads' => $threads],  ['comments' => $comments]);
     }
 
     /**
@@ -61,8 +63,8 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-
-        return view('posts.show', ['post' => $post]);
+        $comments = Comment::all();
+        return view('posts.show', ['post' => $post], ['comments' => $comments] );
     }
 
     /**

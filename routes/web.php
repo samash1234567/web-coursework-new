@@ -7,6 +7,7 @@ use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -76,6 +77,10 @@ Route::get('/login',[SessionController::class, 'create'])->name('login.create')-
 Route::post('/login',[SessionController::class, 'store'])->name('login.session')->middleware('guest');
 
 Route::post('/logout',[SessionController::class, 'destroy'])->name('logout.destroy')->middleware('auth');
+
+
+Route::post('/posts/{post:id}/comments',[CommentController::class, 'store'])->name('comments.store')->middleware('auth');;
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

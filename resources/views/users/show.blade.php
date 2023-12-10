@@ -27,6 +27,15 @@
     </form>
     <a class="display-cancel" href="{{ route('users.index')}}">Go Back</a>
     </div>
+    </div>
+
+
+    <div>
+
+        display shown users comments and posts
+
+
+
 
     </div>
 

@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoryThreadSeeder::class);
 
         $this->call(PostSeeder::class);
+
+        $this->call(CommentSeeder::class);
     }
 }

@@ -30,5 +30,61 @@
 
     </div>
 
+    @endsection
+
+@auth
+    @section('create-comment')
+    <form class="comment-form" action="/posts/{{$post->id}}/comments" method="post">
+
+
+        @csrf
+
+
+        <header>
+            <p style="font-size: 25px">Want to comment?</p>
+        </header>
+
+
+        <div>
+            <textarea class="text-area" name="body" placeholder="Comment here!"  rows="7" cols="60" wrap="soft"> </textarea>
+        </div>
+
+        <div>
+            <button class="submit-comment" type="submit">Post Comment</button>
+        </div>
+
+
+
+
+
+    </form>
+
+
+    @endsection
+    @endauth
+
+    @section('comments')
+<section>
+
+    <article class="display-comment"> {{--display flex--}}
+
+<div>
+{{-- comments for posts --}}
+        @foreach ($comments as $comment)
+        <header class="flex">
+        <h3 class="comment-name"><a class="comment-name" href="{{ route('users.show', ['id' => $comment->user->id])}}">{{$comment->user->name}}</a></h3>
+        <p class="comment-posted">Posted:<time> {{$comment->created_at->format('F j, Y, g:i a')}}</time></p> {{--extra small text--}}
+
+    <p class="comment-text">{{$comment->body}}</p>
+</header>
+    @endforeach
+
+</div>
+
+
+    </article>
+
+
+</section>
 
 @endsection

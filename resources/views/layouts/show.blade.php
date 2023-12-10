@@ -44,6 +44,9 @@
             <div>@yield('content')</div>
 
 
+            <div>@yield('create-comment')</div>
+
+            <div>@yield('comments')</div>
 
         <style>
 
@@ -62,6 +65,80 @@
 
     }
 
+
+    .comment-form {
+
+        margin-top: 5px;
+        text-align: center;
+        border: whitesmoke 5px solid;
+        border-radius: 10px;
+
+
+    }
+
+
+    .text-area {
+
+        color: whitesmoke;
+        resize: none;
+        font-size: 15px;
+
+
+    }
+
+
+    .submit-comment {
+
+        color: rgb(255, 166, 0);
+        background-color: rgb(209, 73, 23);
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        font-weight: bolder;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+
+    }
+
+
+    .display-comment {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .flex {
+
+        margin-left: 550px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: #3d2004 3px solid;
+
+    }
+
+    .comment-name {
+        color: rgb(255, 187, 60);
+        text-transform: uppercase;
+        font-size: 35px;
+        text-decoration: none;
+        margin: 0;
+    }
+
+
+    .comment-posted {
+        margin: 0;
+        font-size: 17px;
+    }
+
+    .comment-text {
+        margin-top: 20px;
+        font-size: 20px;
+        padding: 20px 20px 20px 20px;
+    }
 
     #navbar-container {
 
@@ -240,7 +317,7 @@ text-transform: uppercase;
                 }
 
 
-                .display-submit:hover, .display-cancel:hover {
+                .display-submit:hover, .display-cancel:hover, .submit-comment:hover, .comment-name:hover {
                     cursor: pointer;
                     color: red;
                     background-color: whitesmoke;
