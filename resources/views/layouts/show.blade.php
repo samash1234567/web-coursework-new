@@ -317,7 +317,7 @@ text-transform: uppercase;
                 }
 
 
-                .display-submit:hover, .display-cancel:hover, .submit-comment:hover, .comment-name:hover {
+                .display-submit:hover, .display-cancel:hover, .submit-comment:hover, .comment-name:hover, .display-input-a:hover {
                     cursor: pointer;
                     color: red;
                     background-color: whitesmoke;

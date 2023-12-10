@@ -60,7 +60,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $comments = Comment::findOrFail($id);
+        $comments = Comment::where('user_id', $id)->get();
 
         return view('users.show', ['user' => $user], ['comments' => $comments]);
     }

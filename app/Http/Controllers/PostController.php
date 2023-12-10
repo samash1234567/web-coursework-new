@@ -35,9 +35,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        $path = request()->file('post_image')->store('postimages');
+
+
         $validatedData = $request->validate([
 
             'post_title' => 'required|max:50',
+            'post_image' => 'required|image',
             'post_content' => 'required|max:100',
             'thread_id' => 'required|integer',
             'user_id' => 'required|integer',
@@ -45,6 +51,8 @@ class PostController extends Controller
 
         $p = new Post;
 
+
+        $p->post_image = $validatedData['post_image'] = request()->file('post_image')->store('postimages');
         $p->post_title = $validatedData['post_title'];
         $p->post_content = $validatedData['post_content'];
         $p->thread_id = $validatedData['thread_id'];

@@ -7,8 +7,25 @@
 @section('show', 'Posts')
 
 @section('content')
+<p class="display-input" style="background-color: black;
+                                margin-bottom: 0;
+                                border: none;
+"> POST IMAGE:
+<img style="width: 50%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 5px;
+            background-color: black;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+
+
+" src="{{asset('storage/' . $post->post_image)}}" alt="a post image"></p>
 
     <div class="display-info">
+
     <ul class="display-text">
         <li class="display-input" >Post Title: {{$post->post_title}}</li>
         <li class="display-input">Post Content: {{$post->post_content}}</li>
@@ -31,6 +48,9 @@
     </div>
 
     @endsection
+
+
+
 
 @auth
     @section('create-comment')

@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Route::get('/users',[UserController::class, 'index'])->name('users.index');
 
-Route::get('/users/create',[UserController::class, 'create'])->name('users.create');
+Route::get('/users/create',[UserController::class, 'create'])->name('users.create')->middleware('admin');
 
 Route::post('/users',[UserController::class, 'store'])->name('users.store');
 
@@ -50,7 +50,7 @@ Route::delete('/posts/{id}',[PostController::class, 'destroy'])->name('posts.des
 
 Route::get('/threads',[ThreadController::class, 'index'])->name('threads.index');
 
-Route::get('/threads/create',[ThreadController::class, 'create'])->name('threads.create');
+Route::get('/threads/create',[ThreadController::class, 'create'])->name('threads.create')->middleware('admin');
 
 Route::post('/threads',[ThreadController::class, 'store'])->name('threads.store');
 

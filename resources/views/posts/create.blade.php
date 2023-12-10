@@ -6,7 +6,7 @@
 
 @section('content')
 
-<form class="display-form" method="POST" action="{{ route('posts.store')}}">
+<form class="display-form" method="POST" action="{{ route('posts.store')}}" enctype="multipart/form-data">
 
 @csrf
 
@@ -46,6 +46,14 @@
     @endforeach
 
     </select>
+    </p>
+
+
+    <p>Upload an Image to the Post:
+
+        <input type="file" name="post_image">
+
+
     </p>
 
 <div class="submit-cancel">
