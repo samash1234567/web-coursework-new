@@ -76,10 +76,16 @@ class PostController extends Controller
      */
     public function edit($post_id)
     {
+        if(auth()->user()?->id != $post_id) {
+            session()->flash('message', 'You have to be the owner of the post to edit this!');
+            return redirect()->route('posts.index');
+        }
+
         $post = Post::findOrFail($post_id);
         $users = User::orderBy('name','asc')->get();
         $threads = Thread::orderBy('title','asc')->get();
         return view('posts.edit', compact('post', 'users', 'threads'));
+
     }
 
     /**
@@ -87,6 +93,11 @@ class PostController extends Controller
      */
     public function update(Request $request, $post_id)
     {
+
+        if(auth()->user()?->id != $post_id) {
+            session()->flash('message', 'You have to be the owner of the post to edit this!');
+            return redirect()->route('posts.index');
+        }
 
 
         $validatedData = $request->validate([
