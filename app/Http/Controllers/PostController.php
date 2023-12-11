@@ -106,10 +106,10 @@ class PostController extends Controller
         $p->post_content = $validatedData['post_content'];
         $p->thread_id = $validatedData['thread_id'];
         $p->user_id = $validatedData['user_id'];
-        $p->save();
+        $p->update();
 
 
-        session()->flash('message', 'Post has successfully been created');
+        session()->flash('message', 'Post has been updated successfully!');
 
         return redirect()->route('posts.index');
     }

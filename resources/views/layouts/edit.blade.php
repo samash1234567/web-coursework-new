@@ -67,6 +67,24 @@
                 }
 
 
+                .display-edit {
+
+                color: rgb(255, 166, 0);
+                background-color: rgb(209, 73, 23);
+                padding-left: 50px;
+                padding-right: 50px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                margin: 20px 20px 20px 20px;
+                cursor: pointer;
+                font-size: 45px;
+                font-weight: bold;
+                border-radius: 7px;
+                text-decoration: none;
+
+                }
+
+
                 #navbar-container {
 
                     list-style-type: none;

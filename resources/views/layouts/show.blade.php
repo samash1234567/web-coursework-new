@@ -305,8 +305,8 @@ text-transform: uppercase;
                     background-color: rgb(54, 49, 49);
                     border-radius: 7px;
                     color: rgb(229, 226, 226);
-                    padding-left: 50px;
-                    padding-right: 50px;
+                    padding-left: 35px;
+                    padding-right: 35px;
                     padding-top: 15px;
                     padding-bottom: 15px;
                     font-size: 45px;
@@ -316,8 +316,25 @@ text-transform: uppercase;
 
                 }
 
+                .display-edit {
 
-                .display-submit:hover, .display-cancel:hover, .submit-comment:hover, .comment-name:hover, .display-input-a:hover {
+                color: rgb(255, 166, 0);
+                background-color: rgb(209, 73, 23);
+                padding-left: 50px;
+                padding-right: 50px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                margin: 20px 20px 20px 20px;
+                cursor: pointer;
+                font-size: 45px;
+                font-weight: bold;
+                border-radius: 7px;
+                text-decoration: none;
+
+}
+
+
+                .display-submit:hover, .display-cancel:hover, .submit-comment:hover, .comment-name:hover, .display-input-a:hover, .display-edit:hover {
                     cursor: pointer;
                     color: red;
                     background-color: whitesmoke;

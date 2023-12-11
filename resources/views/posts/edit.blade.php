@@ -6,7 +6,7 @@
 
 @section('content')
 
-<form class="display-form" method="POST" action="{{url('/admin/posts/update/'. $post->id)}}" enctype="multipart/form-data">
+<form class="display-form" method="POST" action="{{url('/posts/update/'. $post->id)}}" enctype="multipart/form-data">
 
 @csrf
 

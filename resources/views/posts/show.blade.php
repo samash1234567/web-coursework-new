@@ -45,7 +45,7 @@
 </form>
 <a class="display-cancel" href="{{ route('posts.index')}}">Go Back</a>
 
- <button><a href="{{route('posts.edit', ['post_id' => $post->id])}}">Edit Post</a></button>
+ <button class="display-submit"><a class="display-edit" href="{{route('posts.edit', ['post_id' => $post->id])}}">Edit Post</a></button>
 
     </div>
 
