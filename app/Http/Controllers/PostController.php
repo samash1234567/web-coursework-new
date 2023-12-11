@@ -36,10 +36,6 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-
-        $path = request()->file('post_image')->store('postimages');
-
-
         $validatedData = $request->validate([
 
             'post_title' => 'required|max:50',
@@ -78,17 +74,44 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($post_id)
     {
-        //
+        $post = Post::findOrFail($post_id);
+        $users = User::orderBy('name','asc')->get();
+        $threads = Thread::orderBy('title','asc')->get();
+        return view('posts.edit', compact('post', 'users', 'threads'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $post_id)
     {
-        //
+
+
+        $validatedData = $request->validate([
+
+            'post_title' => 'required|max:50',
+            'post_image' => 'required|image',
+            'post_content' => 'required|max:100',
+            'thread_id' => 'required|integer',
+            'user_id' => 'required|integer',
+        ]);
+
+        $p = Post::findOrFail($post_id);
+
+
+        $p->post_image = $validatedData['post_image'] = request()->file('post_image')->store('postimages');
+        $p->post_title = $validatedData['post_title'];
+        $p->post_content = $validatedData['post_content'];
+        $p->thread_id = $validatedData['thread_id'];
+        $p->user_id = $validatedData['user_id'];
+        $p->save();
+
+
+        session()->flash('message', 'Post has successfully been created');
+
+        return redirect()->route('posts.index');
     }
 
     /**

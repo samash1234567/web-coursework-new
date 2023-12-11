@@ -47,6 +47,11 @@ Route::get('/posts/{id}',[PostController::class, 'show'])->name('posts.show');
 
 Route::delete('/posts/{id}',[PostController::class, 'destroy'])->name('posts.destroy');
 
+Route::get('/admin/posts/{post_id}',[PostController::class, 'edit'])->name('posts.edit');
+
+Route::put('/posts/update/{post_id}',[PostController::class, 'update'])->name('posts.update');
+
+
 
 Route::get('/threads',[ThreadController::class, 'index'])->name('threads.index');
 
