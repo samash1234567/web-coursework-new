@@ -6,7 +6,7 @@
 
 
 
-<p class="register-text">Register an Account</p>
+<p class="display-title">Register an Account</p>
 <form class="display-form" action="{{ route('register.store')}}" method="post">
 
     @csrf

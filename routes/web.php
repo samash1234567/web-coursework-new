@@ -26,53 +26,53 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/users',[UserController::class, 'index'])->name('users.index');
+Route::get('/users',[UserController::class, 'index'])->name('users.index')->middleware('auth');
 
 Route::get('/users/create',[UserController::class, 'create'])->name('users.create')->middleware('admin');
 
-Route::post('/users',[UserController::class, 'store'])->name('users.store');
+Route::post('/users',[UserController::class, 'store'])->name('users.store')->middleware('auth');
 
-Route::get('/users/{id}', [UserController::class,'show'])->name('users.show');
+Route::get('/users/{id}', [UserController::class,'show'])->name('users.show')->middleware('auth');
 
-Route::delete('/users/{id}',[UserController::class, 'destroy'])->name('users.destroy');
-
-
-Route::get('/posts',[PostController::class, 'index'])->name('posts.index');
-
-Route::get('/posts/create',[PostController::class, 'create'])->name('posts.create');
-
-Route::post('/posts',[PostController::class, 'store'])->name('posts.store');
-
-Route::get('/posts/{id}',[PostController::class, 'show'])->name('posts.show');
-
-Route::delete('/posts/{id}',[PostController::class, 'destroy'])->name('posts.destroy');
-
-Route::get('/admin/posts/{post_id}',[PostController::class, 'edit'])->name('posts.edit');
-
-Route::put('/posts/update/{post_id}',[PostController::class, 'update'])->name('posts.update');
+Route::delete('/users/{id}',[UserController::class, 'destroy'])->name('users.destroy')->middleware('auth');
 
 
+Route::get('/posts',[PostController::class, 'index'])->name('posts.index')->middleware('auth');
 
-Route::get('/threads',[ThreadController::class, 'index'])->name('threads.index');
+Route::get('/posts/create',[PostController::class, 'create'])->name('posts.create')->middleware('auth');
+
+Route::post('/posts',[PostController::class, 'store'])->name('posts.store')->middleware('auth');
+
+Route::get('/posts/{id}',[PostController::class, 'show'])->name('posts.show')->middleware('auth');
+
+Route::delete('/posts/{id}',[PostController::class, 'destroy'])->name('posts.destroy')->middleware('auth');
+
+Route::get('/admin/posts/{post_id}',[PostController::class, 'edit'])->name('posts.edit')->middleware('auth');
+
+Route::put('/posts/update/{post_id}',[PostController::class, 'update'])->name('posts.update')->middleware('auth');
+
+
+
+Route::get('/threads',[ThreadController::class, 'index'])->name('threads.index')->middleware('auth');
 
 Route::get('/threads/create',[ThreadController::class, 'create'])->name('threads.create')->middleware('admin');
 
-Route::post('/threads',[ThreadController::class, 'store'])->name('threads.store');
+Route::post('/threads',[ThreadController::class, 'store'])->name('threads.store')->middleware('auth');
 
-Route::get('/threads/{id}',[ThreadController::class, 'show'])->name('threads.show');
+Route::get('/threads/{id}',[ThreadController::class, 'show'])->name('threads.show')->middleware('auth');
 
-Route::delete('/threads/{id}',[ThreadController::class, 'destroy'])->name('threads.destroy');
+Route::delete('/threads/{id}',[ThreadController::class, 'destroy'])->name('threads.destroy')->middleware('auth');
 
 
-Route::get('/categories',[CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories',[CategoryController::class, 'index'])->name('categories.index')->middleware('auth');
 
-Route::get('/categories/create',[CategoryController::class, 'create'])->name('categories.create');
+Route::get('/categories/create',[CategoryController::class, 'create'])->name('categories.create')->middleware('auth');
 
-Route::post('/categories',[CategoryController::class, 'store'])->name('categories.store');
+Route::post('/categories',[CategoryController::class, 'store'])->name('categories.store')->middleware('auth');
 
-Route::get('/categories/{id}',[CategoryController::class, 'show'])->name('categories.show');
+Route::get('/categories/{id}',[CategoryController::class, 'show'])->name('categories.show')->middleware('auth');
 
-Route::delete('/categories/{id}',[CategoryController::class, 'destroy'])->name('categories.destroy');
+Route::delete('/categories/{id}',[CategoryController::class, 'destroy'])->name('categories.destroy')->middleware('auth');
 
 
 Route::get('/register',[RegisterController::class, 'create'])->name('register.create')->middleware('guest');

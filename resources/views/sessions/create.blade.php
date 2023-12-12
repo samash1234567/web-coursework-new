@@ -6,7 +6,7 @@
 
 @section('content')
 
-<p class="session-text">Log in</p>
+<p class="display-title">Log in to Account</p>
 <form class="display-form" action="{{ route('login.session')}}" method="post">
 
     @csrf
