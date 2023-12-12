@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -84,7 +85,9 @@ Route::post('/login',[SessionController::class, 'store'])->name('login.session')
 Route::post('/logout',[SessionController::class, 'destroy'])->name('logout.destroy')->middleware('auth');
 
 
-Route::post('/posts/{post:id}/comments',[CommentController::class, 'store'])->name('comments.store')->middleware('auth');;
+Route::post('/posts/{post:id}/comments',[CommentController::class, 'store'])->name('comments.store')->middleware('auth');
+
+Route::get('/notifications',[NotificationController::class, 'index'])->name('notifications.index')->middleware('auth');
 
 
 Route::get('/dashboard', function () {

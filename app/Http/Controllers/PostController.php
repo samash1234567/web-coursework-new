@@ -7,6 +7,7 @@ use App\Models\Thread;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Notifications\PostNotification;
+use App\Notifications\CommentNotification;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Notifications\Notifiable;
 
@@ -82,6 +83,7 @@ class PostController extends Controller
         $user = Post::where('user_id', $post)->get();
 
         Notification::send($user , new PostNotification($post));
+        Notification::send($user , new CommentNotification($post));
 
         return view('posts.show', ['post' => $post], ['comments' => $comments] );
     }
@@ -91,12 +93,12 @@ class PostController extends Controller
      */
     public function edit($post_id)
     {
-        if(auth()->user()?->id != $post_id) {
-            session()->flash('message', 'You have to be the owner of the post to edit this!');
-            return redirect()->route('posts.index');
-        }
-
         $post = Post::findOrFail($post_id);
+         if(auth()->user()?->id != $post->user->id) {
+             session()->flash('message', 'You have to be the owner of the post to edit this!');
+             return redirect()->route('posts.index');
+         }
+
         $users = User::orderBy('name','asc')->get();
         $threads = Thread::orderBy('title','asc')->get();
         return view('posts.edit', compact('post', 'users', 'threads'));
@@ -108,12 +110,6 @@ class PostController extends Controller
      */
     public function update(Request $request, $post_id)
     {
-
-        if(auth()->user()?->id != $post_id) {
-            session()->flash('message', 'You have to be the owner of the post to edit this!');
-            return redirect()->route('posts.index');
-        }
-
 
         $validatedData = $request->validate([
 
