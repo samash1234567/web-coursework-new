@@ -6,9 +6,15 @@ use App\Models\User;
 use App\Models\Thread;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Notifications\PostNotification;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Notifications\Notifiable;
 
 class PostController extends Controller
 {
+
+    use Notifiable;
+
     /**
      * Display a listing of the resource.
      */
@@ -67,7 +73,16 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
+
+
         $comments = Comment::all();
+
+
+
+        $user = Post::where('user_id', $post)->get();
+
+        Notification::send($user , new PostNotification($post));
+
         return view('posts.show', ['post' => $post], ['comments' => $comments] );
     }
 
