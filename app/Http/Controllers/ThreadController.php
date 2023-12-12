@@ -22,6 +22,7 @@ class ThreadController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('threads.create');
     }
 
@@ -79,6 +80,7 @@ class ThreadController extends Controller
      */
     public function destroy($id)
     {
+
         $thread = Thread::findOrFail($id);
 
         $thread->delete();

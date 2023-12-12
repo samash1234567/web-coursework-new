@@ -141,7 +141,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+
         $post = Post::findOrFail($id);
+         if(auth()->user()?->id != $post->user->id) {
+             session()->flash('message', 'You have to be the owner of the post to edit this!');
+             return redirect()->route('posts.index');
+         }
 
         $post->delete();
 

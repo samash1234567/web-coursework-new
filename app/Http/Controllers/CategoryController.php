@@ -22,6 +22,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
+        
         return view('categories.create');
     }
 
@@ -79,6 +81,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin');
+
         $category = Category::findOrFail($id);
 
         $category->delete();

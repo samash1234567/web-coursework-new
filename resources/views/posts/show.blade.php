@@ -34,6 +34,8 @@
 
 <div class="submit-cancel">
 
+    @can('admin')
+
 <form method="POST" action="{{ route('posts.destroy', ['id' => $post->id]) }}">
 
     @csrf
@@ -43,6 +45,8 @@
     <button class="display-submit" type="submit">Delete Post</button>
 
 </form>
+@endcan
+
 <a class="display-cancel" href="{{ route('posts.index')}}">Go Back</a>
 
  <button class="display-submit"><a class="display-edit" href="{{route('posts.edit', ['post_id' => $post->id])}}">Edit Post</a></button>

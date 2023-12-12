@@ -13,6 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->authorize('admin');
+
         $users = User::all();
 
         return view('users.index', ['users' => $users]);
@@ -23,6 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('users.create');
     }
 
@@ -86,6 +89,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        
         $user = User::findOrFail($id);
 
         $user->delete();

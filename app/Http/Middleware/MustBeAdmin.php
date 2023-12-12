@@ -16,8 +16,8 @@ class MustBeAdmin
     public function handle(Request $request, Closure $next): Response
     {
 
-        //email: ash75049@gmail.com Pass: password
-            if(auth()->user()?->name != 'AdminSam') {
+
+            if(auth()->user()?->name != 'Sam') {
                 abort(403);
             }
 

@@ -15,15 +15,17 @@
     </ul>
 
     <div class="submit-cancel">
+
+        @can('admin')
     <form method="POST" action="{{ route('threads.destroy', ['id' => $thread->id]) }}">
 
         @csrf
 
         @method('DELETE')
-
         <button class="display-submit" type="submit">Delete Thread</button>
 
     </form>
+    @endcan
     <a class="display-cancel" href="{{ route('threads.index')}}">Go Back</a>
     </div>
 

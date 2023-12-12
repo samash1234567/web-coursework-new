@@ -26,7 +26,10 @@
         <li class="navbar-items"><a class="navbar-anchor" href="{{route('posts.index')}}">Posts</a></li>
         <li class="navbar-items"><a class="navbar-anchor" href="{{route('threads.index')}}">Threads</a></li>
         <li class="navbar-items"><a class="navbar-anchor" href="{{route('categories.index')}}">Categories</a></li>
+
+        @can('admin')
         <li class="navbar-items"><a class="navbar-anchor" href="{{route('users.index')}}">Users</a></li>
+        @endcan
 
         @endauth
 

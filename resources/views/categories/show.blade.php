@@ -8,22 +8,25 @@
 
 @section('content')
 
-    <div class="display-info">
-    <ul class="display-text">
-        <li class="display-input">Category Name: {{$category->name}}</li>
-        <li class="display-input">Category Description: {{$category->catdescription}}</li>
-    </ul>
+        <div class="display-info">
+        <ul class="display-text">
+            <li class="display-input">Category Name: {{$category->name}}</li>
+            <li class="display-input">Category Description: {{$category->catdescription}}</li>
+        </ul>
 
-    <div class="submit-cancel">
-    <form method="POST" action="{{ route('categories.destroy', ['id' => $category->id]) }}">
+        <div class="submit-cancel">
+            @can('admin')
+                
+        <form method="POST" action="{{ route('categories.destroy', ['id' => $category->id]) }}">
 
-        @csrf
+            @csrf
 
-        @method('DELETE')
+            @method('DELETE')
 
-        <button class="display-submit" type="submit">Delete Category</button>
+            <button class="display-submit" type="submit">Delete Category</button>
 
-    </form>
+        </form>
+        @endcan
     <a class="display-cancel" href="{{ route('categories.index')}}">Go Back</a>
 
     </div>
