@@ -23,7 +23,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
-        return view('posts.index', ['posts' => $posts]);
+        return view('posts.index', ['posts' => Post::paginate(15)]);
     }
 
     /**

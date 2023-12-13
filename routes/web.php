@@ -33,7 +33,7 @@ Route::get('/users/create',[UserController::class, 'create'])->name('users.creat
 
 Route::post('/users',[UserController::class, 'store'])->name('users.store')->middleware('admin');
 
-Route::get('/users/{id}', [UserController::class,'show'])->name('users.show')->middleware('admin');
+Route::get('/users/{id}', [UserController::class,'show'])->name('users.show')->middleware('auth');
 
 Route::delete('/users/{id}',[UserController::class, 'destroy'])->name('users.destroy')->middleware('admin');
 

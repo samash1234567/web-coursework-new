@@ -73,6 +73,8 @@
 
     <div>@yield('content')</div>
 
+    <div>@yield('paginate')</div>
+
 
     <style>
 
@@ -87,6 +89,42 @@
 
         color: whitesmoke;
         font-weight: bold
+
+        }
+
+
+        .display-previous {
+            font-size: 45px;
+            color: whitesmoke;
+            font-weight: bolder;
+            background-color: rgb(209, 73, 23);
+            text-decoration: none;
+        }
+
+        .display-previous:hover {
+            cursor: pointer;
+            color: red;
+            background-color: whitesmoke;
+            font-weight: bolder;
+            border-radius: 7px;
+        }
+
+        .display-paginate {
+
+            display: block;
+            text-align: center;
+            text-transform: uppercase;
+            color: rgb(255, 166, 0);
+            background-color: rgb(209, 73, 23);
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin-left: 10px;
+            font-size: 45px;
+            font-weight: bold;
+            border-radius: 7px;
+
 
         }
 

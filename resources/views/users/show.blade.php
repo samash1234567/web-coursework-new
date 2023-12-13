@@ -32,7 +32,7 @@
 
     <div>
 
-        <p class="display-title">User {{$user->name}} comments and posts:</p>
+        <p class="display-title">User {{$user->name}} Comments</p>
 
         @foreach ($comments as $comment)
 
@@ -40,6 +40,26 @@
         <ul class="display-text">
             <li class="display-input">Post associated with comment: <a class="display-input-a" href="{{ route('posts.show', ['id' => $comment->post->id])}}">{{$comment->post->post_title}}</a></li>
             <li class="display-input"> Comment: {{$comment->body}}</li>
+        </ul>
+        </div>
+
+        @endforeach
+
+
+
+    </div>
+
+
+    <div>
+
+
+        <p class="display-title">User {{$user->name}} Posts</p>
+        @foreach ($posts as $post)
+
+        <div class="display-info">
+        <ul class="display-text">
+            <li class="display-input">Post: <a class="display-input-a" href="{{ route('posts.show', ['id' => $post->id])}}">{{$post->post_title}}</a></li>
+            <li class="display-input"> Post Content: {{$post->post_content}}</li>
         </ul>
         </div>
 

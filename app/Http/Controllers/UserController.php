@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Comment;
+use App\Models\Post;
 
 use Illuminate\Http\Request;
 
@@ -64,8 +65,9 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         $comments = Comment::where('user_id', $id)->get();
+        $posts = Post::where('user_id', $id)->get();
 
-        return view('users.show', ['user' => $user], ['comments' => $comments]);
+        return view('users.show', compact('posts', 'user', 'comments'));
     }
 
     /**
@@ -89,7 +91,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $user = User::findOrFail($id);
 
         $user->delete();

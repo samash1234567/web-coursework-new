@@ -21,3 +21,9 @@
 
 
 @endsection
+
+@section('paginate')
+
+{{$posts->links()}}
+
+@endsection
