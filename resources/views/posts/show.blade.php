@@ -22,7 +22,7 @@
             border-radius: 4px;
 
 
-" src="{{asset('storage/' . $post->post_image)}}" alt="a post image"></p>
+" src="{{asset('storage/' . $post->post_image)}}" alt="The users post thumbnail that they have included"></p>
 
     <div class="display-info">
 
@@ -52,7 +52,7 @@
     @can('edit')
 
  <button class="display-submit"><a class="display-edit" href="{{route('posts.edit', ['post_id' => $post->id])}}">Edit Post</a></button>
- 
+
     @endcan
     </div>
 
