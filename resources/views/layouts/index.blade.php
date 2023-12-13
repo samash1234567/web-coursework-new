@@ -31,6 +31,8 @@
         <li class="navbar-items"><a class="navbar-anchor" href="{{route('users.index')}}">Users</a></li>
         @endcan
 
+        <li class="navbar-items"><a class="navbar-anchor" href="{{route('users.index')}}">Role: {{auth()->user()->role_id}}</a></li>
+
         @endauth
 
         @auth

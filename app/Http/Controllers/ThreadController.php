@@ -22,7 +22,7 @@ class ThreadController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin');
+        $this->authorize('create');
         return view('threads.create');
     }
 

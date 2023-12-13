@@ -94,7 +94,8 @@ class PostController extends Controller
     public function edit($post_id)
     {
         $post = Post::findOrFail($post_id);
-         if(auth()->user()?->id != $post->user->id) {
+
+         if(auth()->user()?->id != $post->user->id ) {
              session()->flash('message', 'You have to be the owner of the post to edit this!');
              return redirect()->route('posts.index');
          }

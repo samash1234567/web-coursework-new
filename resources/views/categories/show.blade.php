@@ -15,8 +15,8 @@
         </ul>
 
         <div class="submit-cancel">
-            @can('admin')
-                
+            @can('delete')
+
         <form method="POST" action="{{ route('categories.destroy', ['id' => $category->id]) }}">
 
             @csrf

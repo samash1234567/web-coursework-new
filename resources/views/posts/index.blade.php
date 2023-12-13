@@ -7,7 +7,10 @@
 
 <p class="display-posts">All Posts inside the Thread Pages:</p>
 
+@can('create')
+
 <a class="display-create" href="{{ route('posts.create')}}">Create a Post</a>
+@endcan
 
     <ul class="flexbox-container">
         @foreach ($posts as $post)

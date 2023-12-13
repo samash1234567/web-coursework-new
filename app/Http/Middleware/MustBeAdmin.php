@@ -17,7 +17,7 @@ class MustBeAdmin
     {
 
 
-            if(auth()->user()?->name != 'Sam') {
+            if(auth()->user()?->name != 'AdminSam') {
                 abort(403);
             }
 

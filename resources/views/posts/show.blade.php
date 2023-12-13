@@ -34,7 +34,7 @@
 
 <div class="submit-cancel">
 
-    @can('admin')
+    @can('delete')
 
 <form method="POST" action="{{ route('posts.destroy', ['id' => $post->id]) }}">
 
@@ -49,8 +49,11 @@
 
 <a class="display-cancel" href="{{ route('posts.index')}}">Go Back</a>
 
- <button class="display-submit"><a class="display-edit" href="{{route('posts.edit', ['post_id' => $post->id])}}">Edit Post</a></button>
+    @can('edit')
 
+ <button class="display-submit"><a class="display-edit" href="{{route('posts.edit', ['post_id' => $post->id])}}">Edit Post</a></button>
+ 
+    @endcan
     </div>
 
     @endsection

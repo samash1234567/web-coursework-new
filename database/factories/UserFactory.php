@@ -21,6 +21,7 @@ class UserFactory extends Factory
             'email'=> fake()->safeEmail(),
             'password' => fake()->password(),
             'date_of_birth'=> fake()->dateTimeBetween($startDate = '-30 years', $endDate = 'now', $timezone = null),
+            'role_id'=> \App\Models\Role::inRandomOrder()->first()->id,
         ];
     }
 }

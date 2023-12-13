@@ -16,7 +16,7 @@
 
     <div class="submit-cancel">
 
-        @can('admin')
+        @can('delete')
     <form method="POST" action="{{ route('threads.destroy', ['id' => $thread->id]) }}">
 
         @csrf

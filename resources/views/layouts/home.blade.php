@@ -31,6 +31,9 @@
         <li class="navbar-items"><a class="navbar-anchor" href="{{route('notifications.index')}}"> Notifications: {{auth()->user()->unreadNotifications()->count()}}</a></li>
 
 
+        <li class="navbar-items"><a class="navbar-anchor" href="{{route('users.index')}}">Role: {{auth()->user()->role_id}}</a></li>
+
+
         @endauth
 
         @auth
@@ -50,6 +53,8 @@
         @auth
         <p class="display-title">Welcome Back, {{ auth()->user()->name }} you are logged in!</p>
         @endauth
+
+
 
 
 

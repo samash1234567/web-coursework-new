@@ -22,7 +22,26 @@ class AppServiceProvider extends ServiceProvider
     {
         Gate::define('admin', function($user) {
 
-            return $user->name == 'Sam';
+            return $user->role_id == '1' || $user->name == 'AdminSam';
+
+        });
+
+        Gate::define('create', function($user) {
+
+            return $user->role_id == '1' || $user->role_id == '2' || $user->name == 'AdminSam';
+
+        });
+
+        Gate::define('edit', function($user) {
+
+            return $user->role_id == '1' || $user->role_id == '2' || $user->name == 'AdminSam';
+
+        });
+
+
+        Gate::define('delete', function($user) {
+
+            return $user->role_id == '1' || $user->name == 'AdminSam';
 
         });
     }
